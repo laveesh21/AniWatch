@@ -1,17 +1,32 @@
-package com.aniwatch.models;
+package com.aniwatch.model;
 
+//import jakarta.persistence;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String userName;
-    private String email;
-    private String Password;
 
-    public User(Integer id, String userName, String email, String password) {
-        this.id = id;
+    private String userName;
+
+
+    private String email;
+
+    private String password;
+
+
+    public User( String userName, String email, String password) {
+//        this.id = id;
         this.userName = userName;
         this.email = email;
-        Password = password;
+        this.password = password;
+    }
+
+    public User() {
     }
 
     public Integer getId() {
@@ -33,10 +48,10 @@ public class User {
         this.email = email;
     }
     public String getPassword() {
-        return Password;
+        return password;
     }
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
 }
