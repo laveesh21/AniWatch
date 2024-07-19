@@ -4,7 +4,6 @@ import strawhatBg from '../assets/strawhat.jpg'
 import dragonballBg from '../assets/dbs_bg.jpg'
 import narutoBg from '../assets/naruto.jpg'
 
-
 // Array of image URLs
 const images = [strawhatBg, dragonballBg, narutoBg];
 
@@ -25,7 +24,7 @@ const AnimeMainCard: React.FC = () => {
 
   return (
     <div
-      className="anime-main-card w-full h-full bg-cover bg-center relative"
+      className="anime-main-card w-full h-screen bg-cover bg-center relative"
       style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
     >
       <div className="absolute inset-0 flex items-center justify-center">

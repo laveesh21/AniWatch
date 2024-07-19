@@ -1,6 +1,6 @@
 // App.tsx
 import React from 'react';
-import './App.css'
+import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'; // Adjust path as necessary
 
@@ -11,13 +11,15 @@ import About from './pages/About';
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
+      <div className="flex flex-col h-screen">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/anime" element={<Anime />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <div className="flex-grow overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/anime" element={<Anime />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
