@@ -1,6 +1,5 @@
 package com.aniwatch.controller;
 
-// import java.util.ArrayList;
 import java.util.List;
 
 import com.aniwatch.model.User;
@@ -11,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 @RestController
 public class UserController {
@@ -23,11 +24,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/user")
-	public User registerUser(@RequestBody User user){
-		User savedUser = userService.registerUser(user);
-		return savedUser;
-	}
+
 	
 	@GetMapping("/user")
 	public List<User> findUser(){
@@ -40,17 +37,30 @@ public class UserController {
 		User user = userService.findUserById(userId);
 		return user;	
 	}
-	@GetMapping("/user/{username}")
+	
+	@GetMapping("/user/name/{username}")
 	public User findUserByUsername(@PathVariable("username") String username) throws Exception {
-		User user = userService.findUserByUsername(username);
-		return user;
+		User resultUser = userService.findUserByUsername(username);
+		return resultUser;
 	}
 
+	@GetMapping("/user/search")
+	public List<User> searchUser(@RequestParam( name = "query") String query){
+		List<User> users = userService.searchUser(query);
+		return users;
+	}
+	
+	
+	
+	
+	
 	@PutMapping("/user/{userId}")
 	public User updateUserById(@RequestBody User user, @PathVariable Long userId) throws Exception{
 		User updatedUser = userService.updateUser(user, userId);
 		return updatedUser;
 	}
+	
+	
 	
 	@DeleteMapping("/user/{userId}")
 	public String deleteUserById(@PathVariable Long userId) throws Exception{

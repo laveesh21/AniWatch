@@ -44,11 +44,19 @@ public class UserServiceImplementation implements UserService{
 	}
 	
 	
+// METHOD:4 | SEARCH USER BY USERNAME	
 	@Override
 	public User findUserByUsername(String username) {
 		User user = userRepository.findByUsername(username);
 		return user;
 	}
+
+	
+// MEHTHOD:5 | SEARCH USER BY NAME
+	@Override
+	  public List<User> searchUser(String query) {
+	    return userRepository.searchUser(query);	
+	  }
 	
 
 	@Override
@@ -90,12 +98,6 @@ public class UserServiceImplementation implements UserService{
 		return "User deleted successfully.";
 	}
 	
-	
-	@Override
-	public List<User> searchUser(String query) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 //	@Override
 //	public User findUserByEmail(User email) {

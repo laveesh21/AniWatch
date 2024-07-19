@@ -1,6 +1,5 @@
 package com.aniwatch.model;
 
-
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
