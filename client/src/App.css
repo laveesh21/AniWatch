@@ -1,1 +1,37 @@
+/* App.css */
 
+/* Ensure body doesn't have horizontal scroll */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+}
+
+/* Main container with fixed height */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.h-screen {
+  height: 100vh;
+  /* Full viewport height */
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+}

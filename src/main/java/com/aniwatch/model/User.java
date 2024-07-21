@@ -20,7 +20,7 @@ public class User {
   @Column(nullable = false)
   private String password;
 
-  @Column(name = "created_at")
+  @Column(updatable = false, name = "created_at")
   private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
